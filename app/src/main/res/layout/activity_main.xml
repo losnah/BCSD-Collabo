@@ -6,13 +6,59 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <GridLayout
+        android:layout_width="385dp"
+        android:layout_height="335dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="52dp"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        android:background="@drawable/all_edge_orange"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:layout_width="88dp"
+            android:layout_height="119dp"
+            android:background="@drawable/안드로이드_한기대로고" />
+
+        <ImageButton
+            android:layout_width="97dp"
+            android:layout_height="119dp"
+            android:background="@drawable/안드로이드_한기대로고" />
+
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="124dp"
+            android:background="@drawable/안드로이드_한기대로고"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="124dp"
+            android:background="@drawable/안드로이드_한기대로고"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="124dp"
+            android:background="@drawable/안드로이드_한기대로고"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="124dp"
+            android:background="@drawable/안드로이드_한기대로고"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="124dp"
+            android:background="@drawable/안드로이드_한기대로고"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="124dp"
+            android:background="@drawable/안드로이드_한기대로고"/>
+        <ImageButton
+            android:layout_width="100dp"
+            android:layout_height="124dp"
+            android:background="@drawable/안드로이드_한기대로고"/>
+    </GridLayout>
 
 </android.support.constraint.ConstraintLayout>
