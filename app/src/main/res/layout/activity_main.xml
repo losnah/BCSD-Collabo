@@ -24,41 +24,41 @@
         <ImageButton
             android:layout_width="88dp"
             android:layout_height="119dp"
-            android:background="@drawable/안드로이드_한기대로고" />
+            android:background="@drawable/android_koreatech_logo" />
 
         <ImageButton
             android:layout_width="97dp"
             android:layout_height="119dp"
-            android:background="@drawable/안드로이드_한기대로고" />
+            android:background="@drawable/android_koreatech_logo" />
 
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="124dp"
-            android:background="@drawable/안드로이드_한기대로고"/>
+            android:background="@drawable/android_koreatech_logo"/>
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="124dp"
-            android:background="@drawable/안드로이드_한기대로고"/>
+            android:background="@drawable/android_koreatech_logo"/>
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="124dp"
-            android:background="@drawable/안드로이드_한기대로고"/>
+            android:background="@drawable/android_koreatech_logo"/>
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="124dp"
-            android:background="@drawable/안드로이드_한기대로고"/>
+            android:background="@drawable/android_koreatech_logo"/>
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="124dp"
-            android:background="@drawable/안드로이드_한기대로고"/>
+            android:background="@drawable/android_koreatech_logo"/>
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="124dp"
-            android:background="@drawable/안드로이드_한기대로고"/>
+            android:background="@drawable/android_koreatech_logo"/>
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="124dp"
-            android:background="@drawable/안드로이드_한기대로고"/>
+            android:background="@drawable/android_koreatech_logo"/>
     </GridLayout>
 
 </android.support.constraint.ConstraintLayout>
