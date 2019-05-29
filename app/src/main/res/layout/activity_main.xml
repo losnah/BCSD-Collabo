@@ -21,7 +21,6 @@
         app:layout_constraintHorizontal_bias="0.555"
         app:layout_constraintStart_toStartOf="parent">
 
-<<<<<<< HEAD
         <ImageView
             android:id="@+id/imageview_front_card_00"
             android:layout_width="118dp"
@@ -202,46 +201,7 @@
             android:background="@color/colorPrimaryDark"
             tools:layout_editor_absoluteX="39dp"
             tools:layout_editor_absoluteY="308dp" />
-=======
-        <ImageButton
-            android:layout_width="88dp"
-            android:layout_height="119dp"
-            android:background="@drawable/android_koreatech_logo" />
 
-        <ImageButton
-            android:layout_width="97dp"
-            android:layout_height="119dp"
-            android:background="@drawable/android_koreatech_logo" />
-
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="124dp"
-            android:background="@drawable/android_koreatech_logo"/>
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="124dp"
-            android:background="@drawable/android_koreatech_logo"/>
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="124dp"
-            android:background="@drawable/android_koreatech_logo"/>
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="124dp"
-            android:background="@drawable/android_koreatech_logo"/>
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="124dp"
-            android:background="@drawable/android_koreatech_logo"/>
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="124dp"
-            android:background="@drawable/android_koreatech_logo"/>
-        <ImageButton
-            android:layout_width="100dp"
-            android:layout_height="124dp"
-            android:background="@drawable/android_koreatech_logo"/>
->>>>>>> c2a9f4db0b94a13d45be52a49f813f2dc69658c4
     </GridLayout>
 
 
