@@ -13,7 +13,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="10dp"
         android:columnCount="3"
         android:useDefaultMargins="true"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,8 +27,8 @@
             android:layout_height="116dp"
             android:layout_row="0"
             android:layout_column="0"
-            android:src="@drawable/koreatech_badge"
             android:background="@drawable/all_edge_orange"
+            android:src="@drawable/koreatech_badge"
             tools:layout_editor_absoluteX="38dp"
             tools:layout_editor_absoluteY="308dp" />
 
@@ -41,6 +41,7 @@
             android:background="@color/colorPrimaryDark"
             tools:layout_editor_absoluteX="39dp"
             tools:layout_editor_absoluteY="308dp" />
+
         <ImageView
             android:id="@+id/imageview_front_card_01"
             android:layout_width="118dp"
@@ -203,6 +204,39 @@
             tools:layout_editor_absoluteY="308dp" />
 
     </GridLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginLeft="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/slot_back" />
+
+    <ImageView
+        android:id="@+id/activitiy_main_slotbar_imageview"
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="268dp"
+        android:layout_marginLeft="268dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/slot_bar" />
+
+    <TextView
+        android:id="@+id/activity_main_random_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="92dp"
+        android:layout_marginLeft="92dp"
+        android:layout_marginTop="80dp"
+        android:text="TextView"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
 
 </android.support.constraint.ConstraintLayout>
