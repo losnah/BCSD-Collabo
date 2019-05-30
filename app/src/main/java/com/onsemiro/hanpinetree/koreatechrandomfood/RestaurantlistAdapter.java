@@ -1,6 +1,7 @@
 package com.onsemiro.hanpinetree.koreatechrandomfood;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,14 +15,14 @@ import java.util.ArrayList;
 
 public class RestaurantlistAdapter extends RecyclerView.Adapter<RestaurantlistAdapter.ItemViewHolder>{
     private ArrayList<Data> listData = new ArrayList<>();
-
-    @NonNull
+    private Context mContext;
+    RestaurantlistAdapter(Context context){
+        mContext = context;
+    }
     @Override
-
     public RestaurantlistAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.restaurant_name,parent,false);
         return new ItemViewHolder(view);
-
     }
 
     @Override
@@ -45,7 +46,6 @@ public class RestaurantlistAdapter extends RecyclerView.Adapter<RestaurantlistAd
 
         ItemViewHolder(View itemView) {
             super(itemView);
-
             restaurant_name = itemView.findViewById(R.id.restaurant_name);
         }
 
@@ -53,7 +53,6 @@ public class RestaurantlistAdapter extends RecyclerView.Adapter<RestaurantlistAd
             this.data = data;
             restaurant_name.setText(data.getTitle());
             restaurant_name.setOnClickListener(this);
-
         }
 
         @Override
@@ -62,7 +61,8 @@ public class RestaurantlistAdapter extends RecyclerView.Adapter<RestaurantlistAd
             switch (v.getId()){
                 case R.id.restaurant_name:
                     Toast.makeText(context,data.getTitle(),Toast.LENGTH_SHORT).show();
-                    //Intent intent = new Intent(v.getContext(),MenuActivity.class);
+                    Intent intent = new Intent(mContext, MenuListActivity.class);
+                    mContext.startActivity(intent);
                     break;
             }
         }

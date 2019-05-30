@@ -16,13 +16,12 @@ public class RestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant);
         init();
         setRestaurantName();
-
     }
     private void init(){
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new RestaurantlistAdapter();
+        adapter = new RestaurantlistAdapter(this);
         recyclerView.setAdapter(adapter);
     }
     private void setRestaurantName(){
@@ -55,6 +54,5 @@ public class RestaurantActivity extends AppCompatActivity {
                 adapter.addItem(data);
             }
             adapter.notifyDataSetChanged();
-
     }
 }
