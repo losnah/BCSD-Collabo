@@ -21,11 +21,7 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick(R.id.activity_main_textdb_button) // move to DataBaseManager.class
-    void onDBPageClick(){
-        mIntent = new Intent(getApplicationContext(), DataBaseManager.class);
-        startActivity(mIntent);
-    }
+
 
     @OnClick(R.id.random)   // move to RandomActivity.class
     void onRandomClick(){
