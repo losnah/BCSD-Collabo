@@ -12,40 +12,43 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
-
 public class MenulistAdapter extends RecyclerView.Adapter<MenulistAdapter.ViewHolder> {
     private ArrayList<String> mMenuData = null;
     private Context mContext;
     private ArrayList<String> mSelectedMenu = null;
+    private RecyclerViewItemSelect mRecyclerViewItemSelect;
 
-    MenulistAdapter(ArrayList<String> menulist, Context context){
+    MenulistAdapter(ArrayList<String> menulist, Context context) {
+        mSelectedMenu = new ArrayList<>();
         mMenuData = menulist;
         mContext = context;
     }
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-        ConstraintLayout mItem;
+
+    public void setOnRecyclerViewItemSelected(RecyclerViewItemSelect recyclerViewItemSelected) {
+        this.mRecyclerViewItemSelect = recyclerViewItemSelected;
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        ConstraintLayout mItemConstraintLayout;
         TextView mMenuTextView;
         TextView mMenuCountView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            mItem = itemView.findViewById(R.id.menulist_item);
+            mItemConstraintLayout = itemView.findViewById(R.id.menulist_item);
             mMenuTextView = itemView.findViewById(R.id.menu_textview);
             mMenuCountView = itemView.findViewById(R.id.menu_count_textview);
             mMenuTextView.setOnClickListener(this);
+            mItemConstraintLayout.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-            switch(v.getId()){
-                case R.id.menu_textview :
                     isSelected();
-            }
         }
 
-        void isSelected(){
-            mItem.setBackgroundColor(Color.rgb(255,153,51));
+        void isSelected() {
+            mItemConstraintLayout.setBackgroundColor(Color.rgb(255, 153, 51));
             String menuName = mMenuTextView.getText().toString();
             mSelectedMenu.add(menuName);
             String menuSelectNumber = mMenuCountView.getText().toString();
@@ -53,13 +56,15 @@ public class MenulistAdapter extends RecyclerView.Adapter<MenulistAdapter.ViewHo
             count++;
             menuSelectNumber = Integer.toString(count);
             mMenuCountView.setText(menuSelectNumber);
+            if (mRecyclerViewItemSelect != null)
+                mRecyclerViewItemSelect.onClickedItem(menuName, count);
         }
     }
 
     @Override
     public MenulistAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         Context context = viewGroup.getContext();
-        LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
         View view = inflater.inflate(R.layout.menulist_recyclerview_item, viewGroup, false);
         MenulistAdapter.ViewHolder vh = new MenulistAdapter.ViewHolder(view);
