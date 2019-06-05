@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -19,11 +20,15 @@ public class MenuListActivity extends AppCompatActivity implements View.OnClickL
     private RecyclerView mRecyclerView;
     private MenulistAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private Button mCallMenuButton;
+    private Button mShareMenuButton;
+
+    private ArrayList<String> mSelectedMenulist;
 
     // floating button
-    private Animation mFloatingOpen, mFloatingClose;
-    private Boolean isFloatingOpen = false;
-    private FloatingActionButton mBaseButton, mCallButton, mShareButton;
+//    private Animation mFloatingOpen, mFloatingClose;
+//    private Boolean isFloatingOpen = false;
+//    private FloatingActionButton mBaseButton, mCallButton, mShareButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -56,16 +61,20 @@ public class MenuListActivity extends AppCompatActivity implements View.OnClickL
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mFloatingOpen = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.floating_open);
-        mFloatingClose = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.floation_close);
+        mCallMenuButton = (Button)findViewById(R.id.menulist_call_button);
+        mShareMenuButton = (Button)findViewById(R.id.menulist_sharing_button);
+        mCallMenuButton.setOnClickListener(this);
+        mShareMenuButton.setOnClickListener(this);
+//        mFloatingOpen = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.floating_open);
+//        mFloatingClose = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.floation_close);
 
 //        mBaseButton = (FloatingActionButton)findViewById(R.id.menulist_floating_base);
 //        mCallButton = (FloatingActionButton)findViewById(R.id.menulist_floating_call);
 //        mShareButton = (FloatingActionButton)findViewById(R.id.menulist_floating_share);
-
-        mBaseButton.setOnClickListener(this);
-        mCallButton.setOnClickListener(this);
-        mShareButton.setOnClickListener(this);
+//
+//        mBaseButton.setOnClickListener(this);
+//        mCallButton.setOnClickListener(this);
+//        mShareButton.setOnClickListener(this);
     }
 
     @Override
@@ -83,26 +92,27 @@ public class MenuListActivity extends AppCompatActivity implements View.OnClickL
 //                anim();
 //                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
 //                break;    // floating button
-
+            case R.id.menulist_call_button :
+            case R.id.menulist_sharing_button :
         }
     }
 
-    private void anim() { // floating button animation method
-        if(isFloatingOpen){
-            mCallButton.startAnimation(mFloatingClose);
-            mShareButton.startAnimation(mFloatingClose);
-            mCallButton.setClickable(false);
-            mShareButton.setClickable(false);
-            isFloatingOpen = false;
-        }
-        else{
-            mCallButton.startAnimation(mFloatingOpen);
-            mShareButton.startAnimation(mFloatingOpen);
-            mCallButton.setClickable(true);
-            mShareButton.setClickable(true);
-            isFloatingOpen = true;
-        }
-    }
+//    private void anim() { // floating button animation method
+//        if(isFloatingOpen){
+//            mCallButton.startAnimation(mFloatingClose);
+//            mShareButton.startAnimation(mFloatingClose);
+//            mCallButton.setClickable(false);
+//            mShareButton.setClickable(false);
+//            isFloatingOpen = false;
+//        }
+//        else{
+//            mCallButton.startAnimation(mFloatingOpen);
+//            mShareButton.startAnimation(mFloatingOpen);
+//            mCallButton.setClickable(true);
+//            mShareButton.setClickable(true);
+//            isFloatingOpen = true;
+//        }
+//    }
 
     @Override
     public void onClickedItem(String itemName, int count) {
