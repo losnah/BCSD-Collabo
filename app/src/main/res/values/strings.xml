@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">오늘 뭐먹?</string>
+    <string name="subtract"> - </string>
+    <string name="add"> + </string>
 </resources>

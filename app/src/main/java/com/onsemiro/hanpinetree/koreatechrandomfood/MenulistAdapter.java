@@ -2,24 +2,25 @@ package com.onsemiro.hanpinetree.koreatechrandomfood;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MenulistAdapter extends RecyclerView.Adapter<MenulistAdapter.ViewHolder> {
     private ArrayList<String> mMenuData = null;
-    private Context mContext;
-    private ArrayList<String> mSelectedMenu = null;
     private RecyclerViewItemSelect mRecyclerViewItemSelect;
+    private Context mContext;
 
     MenulistAdapter(ArrayList<String> menulist, Context context) {
-        mSelectedMenu = new ArrayList<>();
         mMenuData = menulist;
         mContext = context;
     }
@@ -32,32 +33,46 @@ public class MenulistAdapter extends RecyclerView.Adapter<MenulistAdapter.ViewHo
         ConstraintLayout mItemConstraintLayout;
         TextView mMenuTextView;
         TextView mMenuCountView;
+        Button mIncreaseCount;
+        Button mDecreaseCount;
 
         public ViewHolder(View itemView) {
             super(itemView);
             mItemConstraintLayout = itemView.findViewById(R.id.menulist_item);
             mMenuTextView = itemView.findViewById(R.id.menu_textview);
             mMenuCountView = itemView.findViewById(R.id.menu_count_textview);
-            mMenuTextView.setOnClickListener(this);
-            mItemConstraintLayout.setOnClickListener(this);
+            mIncreaseCount = itemView.findViewById(R.id.menulist_add_button);
+            mIncreaseCount.setOnClickListener(this);
+            mDecreaseCount = itemView.findViewById(R.id.menulist_subtract_button);
+            mDecreaseCount.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
-                    isSelected();
+            String menuName = mMenuTextView.getText().toString();
+            int menuCountNumber = Integer.parseInt(mMenuCountView.getText().toString());
+
+            switch(v.getId()){
+                case R.id.menulist_add_button :
+                    setItem(menuName, ++menuCountNumber);
+                    break;
+                case R.id.menulist_subtract_button :
+                    if(menuCountNumber != 0) setItem(menuName, --menuCountNumber);
+                    break;
+            }
         }
 
-        void isSelected() {
-            mItemConstraintLayout.setBackgroundColor(Color.rgb(255, 153, 51));
-            String menuName = mMenuTextView.getText().toString();
-            mSelectedMenu.add(menuName);
-            String menuSelectNumber = mMenuCountView.getText().toString();
-            int count = Integer.parseInt(menuSelectNumber);
-            count++;
-            menuSelectNumber = Integer.toString(count);
-            mMenuCountView.setText(menuSelectNumber);
-            if (mRecyclerViewItemSelect != null)
-                mRecyclerViewItemSelect.onClickedItem(menuName, count);
+        void setItem(String menuName, int countNumber) {
+            if(countNumber > 0)
+                mItemConstraintLayout.setBackgroundColor(Color.rgb(255, 153, 51));
+            else {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    mItemConstraintLayout.setBackground(ContextCompat.getDrawable(mContext, R.drawable.all_edge_orange));
+                } else {
+                    mItemConstraintLayout.setBackgroundDrawable(ContextCompat.getDrawable(mContext, R.drawable.all_edge_orange));
+                }
+            }
+            mMenuCountView.setText(Integer.toString(countNumber));
         }
     }
 
