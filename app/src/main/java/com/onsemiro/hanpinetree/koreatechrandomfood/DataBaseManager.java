@@ -29,8 +29,7 @@ public class DataBaseManager extends AppCompatActivity {
     public Context mContext;
     public SQLiteDatabase database;
 
-    //public String[] storename = {  "Hansot","Bonggus" ,"Jlgumuckgi","Gorilabob","Momstouch","NeneChicken","Kimsdon","Yetnaltongdak","Hops","Bakyusaneyasik","Sokupndaji","Yulnalgae","Michinjjambbong","Duckgm","Guchonchicken","Masinetangsuyuk","Taesunjokbal","Gusunghansikvife","Cheftondak","Maslan","Sunny","Tiba","Maxicanna"};
-/**/
+
     static ArrayList<ArrayList<String>> restaurant = new ArrayList<ArrayList<String>>();
     static ArrayList<String> restaurantname = new ArrayList<String>();
     static ArrayList<String> hansot = new ArrayList<String>();
