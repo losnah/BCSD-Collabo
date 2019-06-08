@@ -7,7 +7,11 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -56,6 +60,15 @@ public class MainActivity extends AppCompatActivity {
         File f = new File(getFilesDir() + "test.txt");
         if (!f.isFile()) {
             createDB();
+            try {
+                BufferedWriter bw = new BufferedWriter(new FileWriter(getFilesDir() + "test.txt", true));
+                PrintWriter pw = new PrintWriter(bw, true);
+                pw.write("once");
+                pw.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "예외발생 ", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
