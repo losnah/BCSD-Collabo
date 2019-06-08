@@ -34,4 +34,9 @@ public class MainActivity extends AppCompatActivity {
         mIntent = new Intent(getApplicationContext(), RestaurantActivity.class);
         startActivity(mIntent);
     }
+    @OnClick(R.id.activity_main_databaseManager_button)
+    void onStartDBManager(){
+        mIntent = new Intent(getApplicationContext(), DataBaseManager.class);
+        startActivity(mIntent);
+    }
 }

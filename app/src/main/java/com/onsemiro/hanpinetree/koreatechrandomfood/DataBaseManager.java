@@ -10,141 +10,111 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import butterknife.BindView;
+import butterknife.OnClick;
 
 public class DataBaseManager extends AppCompatActivity {
 
-    EditText mEditText;
-    EditText mEditText2;
-    EditText mEditText3;
-    EditText mEditText4;
-    EditText mEditText5;
+    public EditText mDatabaseName;
+    public EditText mTableName;
+    public EditText mPrimaryKey;
+    public EditText mMenuName;
+    public EditText mPrice;
+    public EditText mPhoneNum;
 
-    TextView mTextView;
-    SQLiteDatabase database;
+    public Button mOpenButton;
+    public Button mTableButton;
+    public Button mPlusButton;
+
+    public TextView mConsoleText; //console용 텍스트뷰
+
+
+    public Context mContext;
+    public SQLiteDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_base_manager);
-
         init();
     }
 
     void init(){
-        mEditText = (EditText)findViewById(R.id.editText);
-        mEditText2 = (EditText)findViewById(R.id.editText2);
-        mEditText3= (EditText)findViewById(R.id.editText3);
-        mEditText4= (EditText)findViewById(R.id.editText4);
-        mEditText5= (EditText)findViewById(R.id.editText5);
+        mContext = getApplicationContext();
+        mDatabaseName = (EditText)findViewById(R.id.activity_data_base_manager_databasename_edittext);//버터나이프 getText()안됨
+        mTableName = (EditText)findViewById(R.id.activity_data_base_manager_tablename_edittext);
 
-        mTextView = (TextView)findViewById(R.id.textView4);
+        mPrimaryKey = (EditText)findViewById(R.id.activity_data_base_manager_datanumber_edittext);
+        mMenuName = (EditText)findViewById(R.id.activity_data_base_manager_foodname_edittext);
+        mPrice = (EditText)findViewById(R.id.activity_data_base_manager_price_edittext);
+        mPhoneNum = (EditText)findViewById(R.id.activity_data_base_manager_phonenum_edittext);
 
-        Button mButton = (Button)findViewById(R.id.button2);
-        mButton.setOnClickListener(new View.OnClickListener() {
+        mOpenButton = (Button)findViewById(R.id.activity_data_base_manager_openDB_button); //OnClick안먹어서 다시 바인딩
+        mTableButton = (Button)findViewById(R.id.activity_data_base_manager_create_table_button);
+        mPlusButton = (Button)findViewById(R.id.activity_data_base_manager_insert_data_button);
+
+        mConsoleText = (TextView)findViewById(R.id.activity_data_base_manager_console_textview); //버터나이프로 append안먹음 ㅠ
+
+        mOpenButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String databaseName = mEditText.getText().toString();
-//                Toast.makeText(getApplicationContext(),"흠",Toast.LENGTH_SHORT).show();
-                openDatabase(databaseName);
-            }
-        });
+                println("openOrCreateDataBase()호출");
+                database = openOrCreateDatabase(mDatabaseName.getText().toString(),MODE_PRIVATE, null);
 
-        Button mButton2 = (Button)findViewById(R.id.button3);
-        mButton2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String tableName = mEditText2.getText().toString();
-                createTable(tableName);
-            }
-        });
-        Button mButton3 = (Button)findViewById(R.id.button4);
-        mButton3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String name = mEditText3.getText().toString().trim();
-                String ageStr = mEditText4.getText().toString().trim();
-                String mobile = mEditText5.getText().toString().trim();
-
-                int age = -1;
-                try {
-                    age = Integer.parseInt(ageStr);
-                }catch (Exception e){
-                    e.printStackTrace();
+                if(database != null){
+                    println("데이터베이스를 열었습니다.");
                 }
-                insertData(name, age, mobile);
             }
         });
 
-        Button mButton4 = (Button)findViewById(R.id.button10);
-        mButton4.setOnClickListener(new View.OnClickListener() {
+        mTableButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tableName = mEditText2.getText().toString();
-                selectData(tableName);
+                println("테이블 생성... ");
+                if(database != null){
+                    String sql = "create table if not exists " + mTableName.getText().toString() + "("
+                            + " _id integer PRIMARY KEY autoincrement, "
+                            + " name text, "
+                            + " price integer, "
+                            + " phone text);";
+                    database.execSQL(sql);
+                    println("완료... ");
+                }else{
+                    simpleToast("먼저 데이터베이스를 실행시켜주세요.");
+                }
             }
         });
 
-    }
+        mPlusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int DBkey = Integer.parseInt(mPrimaryKey.getText().toString().trim());
+                String menu = mMenuName.getText().toString().trim();
+                int price = Integer.parseInt(mPrice.getText().toString().trim());
+                String phone = mPhoneNum.getText().toString().trim();
 
-    public void openDatabase(String databaseName){
-        println("openDatabase() 호출됨");
-        database = openOrCreateDatabase(databaseName, MODE_PRIVATE, null);
-        //보안때문에 MODE_PRIVATE를 주로 많이 씁니다.
-        if(database != null){
-            println("데이터베이스 오픈");
-        }
-    }
-    public void createTable(String tableName){
-        println("createTable() 호출됨");
-        if(database != null) {
-            String sql = "create table if not exists " + tableName + "("
-                    + " _id integer PRIMARY KEY autoincrement, "
-                    + " name text, "
-                    + " age integer, "
-                    + " phone text);";
-            database.execSQL(sql);
-            println("테이블 생성됨");
-        }else{
-            println("먼제 데이터베이스를 열어주세요");
-        }
-    }
+                //데이터를 추가해줍니다.
+                println("데이터를 추가하기 시작..");
+                if(database != null ){
+                    String sql = "insert into store(_id, name, price, phone) values( ?, ?, ?, ?)";
+                    Object[] params = { DBkey, menu, price,phone};
+                    database.execSQL(sql,params);
+                    println("완료");
+                }else{
+                    simpleToast("데이터베이스를 먼저 열어주세요");
+                }
 
-    public void insertData(String name, int age, String mobile){
-        println("insertData() 호출됨");
-
-        if(database != null){
-            String sql = "insert into customer(name, age, mobile) values( ?, ?, ?)";
-            Object[] params = { name, age, mobile};
-
-            database.execSQL(sql,params);
-            println("데이터 추가함");
-        }else {
-            println("데이터베이스 먼저 오픈하세요");
-        }
-    }
-
-    public void selectData(String tableName){
-        println("selectData() 호출됨");
-
-        if( database != null ){
-            String sql = "select name, age, mobile from "+tableName;
-            Cursor cursor = database.rawQuery(sql, null);//반환값이 있습니다 ㅎㅎ
-            println("조회된 데이터 갯수 : "+ cursor.getCount());
-
-            for(int i = 0; i < cursor.getCount(); i++){
-                cursor.moveToNext();
-                String name = cursor.getString(0);
-                int age = cursor.getInt(1);
-                String mobile = cursor.getString(2);
-
-                println("#"+ i + "->" + name + ", " + age + ", " + mobile);
             }
-        }
+        });
+    }
 
+    public void simpleToast(String message){
+        Toast.makeText(mContext,message,Toast.LENGTH_SHORT).show();
     }
     public void println(String data){
-        mTextView.append(data +"\n");
+        mConsoleText.append(data+"\n");
     }
-
 
 }
