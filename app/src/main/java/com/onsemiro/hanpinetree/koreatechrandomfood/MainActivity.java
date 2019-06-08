@@ -144,92 +144,92 @@ public class MainActivity extends AppCompatActivity {
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < jlgumuckgi.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size(), "즐겨찾기", jlgumuckgi.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size(), "즐겨먹기", jlgumuckgi.get(i), 5000, "041-522-0122"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < gorilabob.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size(), "고릴라밥", gorilabob.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size(), "고릴라밥", gorilabob.get(i), 5000, "041-555-6098"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < momstouch.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size(), "맘스터치", momstouch.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size(), "맘스터치", momstouch.get(i), 5000, "041-558-5385"};
             database.execSQL(sql, params1);
         }
         /////////////
         for(int i = 0; i < nenechicken.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size(), "네네치킨", nenechicken.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size(), "네네치킨", nenechicken.get(i), 5000, "041-568-9285"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < kimsdon.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size(), "킴스돈", kimsdon.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size(), "킴스돈", kimsdon.get(i), 5000, "041-568-1500"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < yetnaltongdak.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size(), "옛날치킨", yetnaltongdak.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size(), "옛날통닭", yetnaltongdak.get(i), 5000, "010-9988-0127"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < hops.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size(), "홉스", hops.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size(), "홉스", hops.get(i), 5000, "041-555-6295"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < bakyusaneyasik.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size(), "속없는돼지", bakyusaneyasik.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size(), "속없는돼지", bakyusaneyasik.get(i), 5000, "041-522-2920"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < sokupndaeji.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size(), "박여사네야식", sokupndaeji.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size(), "박여사네야식", sokupndaeji.get(i), 5000, "041-555-7525"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < yulnalgae.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size(), "열날개", yulnalgae.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size(), "열날개", yulnalgae.get(i), 5000, "041-556-9982"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < michinjjambbong.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size()+yulnalgae.size(), "미친짬뽕", michinjjambbong.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size()+yulnalgae.size(), "미친짬뽕", michinjjambbong.get(i), 5000, "041-557-4317"};
             database.execSQL(sql, params1);
         }
         sum = hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size()+yulnalgae.size();
         for(int i = 0; i < duckgm.size(); i++) {
-            Object[] params1 = {i+sum+ michinjjambbong.size(), "덕금", duckgm.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+ michinjjambbong.size(), "덕금", duckgm.get(i), 5000, "041-566-4590"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < guchonchicken.size(); i++) {
-            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size(), "교촌치킨", guchonchicken.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size(), "교촌치킨", guchonchicken.get(i), 5000, "041-567-7272"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < taesunjokbal.size(); i++) {
-            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size()+guchonchicken.size(), "태선족발", taesunjokbal.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size()+guchonchicken.size(), "태선족발", taesunjokbal.get(i), 5000, "041-555-9588"};
             database.execSQL(sql, params1);
         }
         sum += michinjjambbong.size()+bonggus.size()+guchonchicken.size();
         for(int i = 0; i < masinetangsuyuk.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size(), "마시내탕수육", masinetangsuyuk.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+taesunjokbal.size(), "마시내탕수육", masinetangsuyuk.get(i), 5000, "041-552-99982"};
             database.execSQL(sql, params1);
         }
         //OK
         for(int i = 0; i < gusunghansikvife.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size(), "거성한식뷔페", gusunghansikvife.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size(), "거성한식뷔페", gusunghansikvife.get(i), 5000, "041-552-3935"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < cheftongdak.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size(), "쉐프통닭", cheftongdak.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size(), "쉐프통닭", cheftongdak.get(i), 5000, "010-4667-6020"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < maslan.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size(), "마슬랜", maslan.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size(), "마슬랜", maslan.get(i), 5000, "041-566-9949"};
             database.execSQL(sql, params1);
         }
 
         for(int i = 0; i < sunny.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size(), "써니숯불도시락", sunny.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size(), "써니숯불도시락", sunny.get(i), 5000, "041-554-8951"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < tiba.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size()+sunny.size(), "티바", tiba.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size()+sunny.size(), "티바", tiba.get(i), 5000, "070-4215-7499"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < mexicanna.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size()+sunny.size()+tiba.size(), "맥시카나", mexicanna.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size()+sunny.size()+tiba.size(), "맥시카나", mexicanna.get(i), 5000, "041-522-1282"};
             database.execSQL(sql, params1);
         }
 
