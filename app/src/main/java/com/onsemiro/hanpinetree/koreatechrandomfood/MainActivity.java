@@ -50,6 +50,30 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<String> tiba = new ArrayList<String>();
     static ArrayList<String> mexicanna = new ArrayList<String>();
 
+    /*가격정보*/
+    ArrayList<String> hansotprice = new ArrayList<>();
+    ArrayList<String> bonggusprice = new ArrayList<>();
+    ArrayList<String> jlgumuckgiprice = new ArrayList<>();
+    ArrayList<String> gorilabobprice = new ArrayList<>();
+    ArrayList<String> momstouchprice = new ArrayList<>();
+    ArrayList<String> nenechickenprice = new ArrayList<>();
+    ArrayList<String> kimsdonprice = new ArrayList<>();
+    ArrayList<String> yetnaltongdakprice = new ArrayList<>();
+    ArrayList<String> hopsprice = new ArrayList<>();
+    ArrayList<String> bakyusaneyasikprice = new ArrayList<>();
+    ArrayList<String> sokupndaejiprice = new ArrayList<>();
+    ArrayList<String> yulnalgaeprice = new ArrayList<>();
+    ArrayList<String> michinjjambbongprice = new ArrayList<>();
+    ArrayList<String> duckgmprice = new ArrayList<>();
+    ArrayList<String> guchonchickenprice = new ArrayList<>();
+    ArrayList<String> masinetangsuyukprice = new ArrayList<>();
+    ArrayList<String> taesunjokbalprice = new ArrayList<>();
+    ArrayList<String> gusunghansikvifeprice = new ArrayList<>();
+    ArrayList<String> cheftongdakprice = new ArrayList<>();
+    ArrayList<String> maslanprice = new ArrayList<>();
+    ArrayList<String> sunnyprice = new ArrayList<>();
+    ArrayList<String> tibaprice = new ArrayList<>();
+    ArrayList<String> mexicannaprice = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -118,6 +142,29 @@ public class MainActivity extends AppCompatActivity {
         addRestaurant();
         restaurantName();
         /**/
+        addHansotMenuPrice();
+        addBonggusMenuPrice();
+        addJlgumuckgiMenuPrice();
+        addGorilabobMenuPrice();
+        addMomstouchMenuPrice();
+        addNeneChickenMenuPrice();
+        addKimsdonMenuPrice();
+        addYetnaltongdakMenuPrice();
+        addHopsMenuPrice();
+        addBakyusaneyasikMenuPrice();
+        addSokupndajiMenuPrice();
+        addYulnalgaeMenuPrice();
+        addMichinjjambbongMenuPrice();
+        addDuckgmMenuPrice();
+        addGuchonchickenMenuPrice();
+        addMasinetangsuyukMenuPrice();
+        addTaesunjokbalMenuPrice();
+        addGusunghansikvifeMenuPrice();
+        addCheftondakMenuPrice();
+        addMaslanMenuPrice();
+        addSunnyMenuPrice();
+        addTibaMenuPrice();
+        addMaxicannaMenuPrice();
         //데이터베이스 열기
 
         database = openOrCreateDatabase("store.db",MODE_PRIVATE, null);
@@ -136,100 +183,100 @@ public class MainActivity extends AppCompatActivity {
 
         int sum = 0;
         for(int i = 0; i < hansot.size(); i++) {
-            Object[] params1 = {i, "한솥", hansot.get(i), 5000, "041-523-1124"};
+            Object[] params1 = {i, "한솥", hansot.get(i), Integer.parseInt(hansotprice.get(i)) , "041-523-1124"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < bonggus.size(); i++) {
-            Object[] params1 = {i+hansot.size(), "봉구스", bonggus.get(i), 5000, "041-523-5949"};
+            Object[] params1 = {i+hansot.size(), "봉구스", bonggus.get(i),  Integer.parseInt(bonggusprice.get(i)), "041-523-5949"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < jlgumuckgi.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size(), "즐겨먹기", jlgumuckgi.get(i), 5000, "041-522-0122"};
+            Object[] params1 = {i+hansot.size()+bonggus.size(), "즐겨먹기", jlgumuckgi.get(i),  Integer.parseInt(jlgumuckgiprice.get(i)), "041-522-0122"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < gorilabob.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size(), "고릴라밥", gorilabob.get(i), 5000, "041-555-6098"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size(), "고릴라밥", gorilabob.get(i),  Integer.parseInt(gorilabobprice.get(i)), "041-555-6098"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < momstouch.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size(), "맘스터치", momstouch.get(i), 5000, "041-558-5385"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size(), "맘스터치", momstouch.get(i),  Integer.parseInt(momstouchprice.get(i)), "041-558-5385"};
             database.execSQL(sql, params1);
         }
-        /////////////
         for(int i = 0; i < nenechicken.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size(), "네네치킨", nenechicken.get(i), 5000, "041-568-9285"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size(), "네네치킨", nenechicken.get(i), Integer.parseInt(nenechickenprice.get(i)), "041-568-9285"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < kimsdon.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size(), "킴스돈", kimsdon.get(i), 5000, "041-568-1500"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size(), "킴스돈", kimsdon.get(i), Integer.parseInt(kimsdonprice.get(i)), "041-568-1500"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < yetnaltongdak.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size(), "옛날통닭", yetnaltongdak.get(i), 5000, "010-9988-0127"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size(), "옛날통닭", yetnaltongdak.get(i), Integer.parseInt(yetnaltongdakprice.get(i)), "010-9988-0127"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < hops.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size(), "홉스", hops.get(i), 5000, "041-555-6295"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size(), "홉스", hops.get(i), Integer.parseInt(hopsprice.get(i)), "041-555-6295"};
             database.execSQL(sql, params1);
         }
+
         for(int i = 0; i < bakyusaneyasik.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size(), "속없는돼지", bakyusaneyasik.get(i), 5000, "041-522-2920"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size(), "박여사네야식", bakyusaneyasik.get(i),  Integer.parseInt(bakyusaneyasikprice.get(i)), "041-522-2920"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < sokupndaeji.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size(), "박여사네야식", sokupndaeji.get(i), 5000, "041-555-7525"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size(), "속없는돼지", sokupndaeji.get(i),  Integer.parseInt(sokupndaejiprice.get(i)), "041-555-7525"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < yulnalgae.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size(), "열날개", yulnalgae.get(i), 5000, "041-556-9982"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size(), "열날개", yulnalgae.get(i),  Integer.parseInt(yulnalgaeprice.get(i)), "041-556-9982"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < michinjjambbong.size(); i++) {
-            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size()+yulnalgae.size(), "미친짬뽕", michinjjambbong.get(i), 5000, "041-557-4317"};
+            Object[] params1 = {i+hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size()+yulnalgae.size(), "미친짬뽕", michinjjambbong.get(i),  Integer.parseInt(michinjjambbongprice.get(i)), "041-557-4317"};
             database.execSQL(sql, params1);
         }
         sum = hansot.size()+bonggus.size()+jlgumuckgi.size()+gorilabob.size()+momstouch.size()+nenechicken.size()+kimsdon.size()+yetnaltongdak.size()+hops.size()+bakyusaneyasik.size()+sokupndaeji.size()+yulnalgae.size();
         for(int i = 0; i < duckgm.size(); i++) {
-            Object[] params1 = {i+sum+ michinjjambbong.size(), "덕금", duckgm.get(i), 5000, "041-566-4590"};
+            Object[] params1 = {i+sum+ michinjjambbong.size(), "덕금", duckgm.get(i), Integer.parseInt(duckgmprice.get(i)), "041-566-4590"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < guchonchicken.size(); i++) {
-            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size(), "교촌치킨", guchonchicken.get(i), 5000, "041-567-7272"};
+            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size(), "교촌치킨", guchonchicken.get(i), Integer.parseInt(guchonchickenprice.get(i)), "041-567-7272"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < taesunjokbal.size(); i++) {
-            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size()+guchonchicken.size(), "태선족발", taesunjokbal.get(i), 5000, "041-555-9588"};
+            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size()+guchonchicken.size(), "태선족발", taesunjokbal.get(i), Integer.parseInt(taesunjokbalprice.get(i)), "041-555-9588"};
             database.execSQL(sql, params1);
         }
         sum += michinjjambbong.size()+bonggus.size()+guchonchicken.size();
         for(int i = 0; i < masinetangsuyuk.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size(), "마시내탕수육", masinetangsuyuk.get(i), 5000, "041-552-99982"};
+            Object[] params1 = {i+sum+taesunjokbal.size(), "마시내탕수육", masinetangsuyuk.get(i), Integer.parseInt(masinetangsuyukprice.get(i)), "041-552-99982"};
             database.execSQL(sql, params1);
         }
         //OK
         for(int i = 0; i < gusunghansikvife.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size(), "거성한식뷔페", gusunghansikvife.get(i), 5000, "041-552-3935"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size(), "거성한식뷔페", gusunghansikvife.get(i), Integer.parseInt(gusunghansikvifeprice.get(i)), "041-552-3935"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < cheftongdak.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size(), "쉐프통닭", cheftongdak.get(i), 5000, "010-4667-6020"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size(), "쉐프통닭", cheftongdak.get(i), Integer.parseInt(cheftongdakprice.get(i)), "010-4667-6020"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < maslan.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size(), "마슬랜", maslan.get(i), 5000, "041-566-9949"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size(), "마슬랜", maslan.get(i), Integer.parseInt(maslanprice.get(i)), "041-566-9949"};
             database.execSQL(sql, params1);
         }
 
         for(int i = 0; i < sunny.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size(), "써니숯불도시락", sunny.get(i), 5000, "041-554-8951"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size(), "써니숯불도시락", sunny.get(i), Integer.parseInt(sunnyprice.get(i)), "041-554-8951"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < tiba.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size()+sunny.size(), "티바", tiba.get(i), 5000, "070-4215-7499"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size()+sunny.size(), "티바", tiba.get(i), Integer.parseInt(tibaprice.get(i)), "070-4215-7499"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < mexicanna.size(); i++) {
-            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size()+sunny.size()+tiba.size(), "맥시카나", mexicanna.get(i), 5000, "041-522-1282"};
+            Object[] params1 = {i+sum+taesunjokbal.size()+michinjjambbong.size()+gusunghansikvife.size()+cheftongdak.size()+maslan.size()+sunny.size()+tiba.size(), "맥시카나", mexicanna.get(i), Integer.parseInt(mexicannaprice.get(i)), "041-522-1282"};
             database.execSQL(sql, params1);
         }
 
@@ -465,7 +512,6 @@ public class MainActivity extends AppCompatActivity {
         taesunjokbal.add("족발덮밥(간장)");
         taesunjokbal.add("족발덮밥(매운)");
         taesunjokbal.add("알뜰한2인세트");
-        taesunjokbal.add("배달상차림");
     }
     public void addGusunghansikvifeMenu() {
         gusunghansikvife.add("소불고기");
@@ -530,5 +576,257 @@ public class MainActivity extends AppCompatActivity {
         mexicanna.add("땡초치킨");
         mexicanna.add("멕시윙");
         mexicanna.add("파닭");
+    }
+
+    /*가격*/
+
+    public void addYetnaltongdakMenuPrice() {
+        yetnaltongdakprice.add("7000");
+        yetnaltongdakprice.add("11000");
+        yetnaltongdakprice.add("12000");
+        yetnaltongdakprice.add("11000");
+        yetnaltongdakprice.add("12000");
+        yetnaltongdakprice.add("13000");
+        yetnaltongdakprice.add("13000");
+        yetnaltongdakprice.add("13000");
+        yetnaltongdakprice.add("15000");
+    }
+    public void addHopsMenuPrice() {
+        hopsprice.add("6000");
+        hopsprice.add("6000");
+        hopsprice.add("7000");
+        hopsprice.add("9000");
+        hopsprice.add("16000");
+        hopsprice.add("18000");
+        hopsprice.add("9000");
+        hopsprice.add("19000");
+        hopsprice.add("12000");
+    }
+    public void addBakyusaneyasikMenuPrice() {
+        bakyusaneyasikprice.add("30000");
+        bakyusaneyasikprice.add("30000");
+        bakyusaneyasikprice.add("8000");
+        bakyusaneyasikprice.add("20000");
+        bakyusaneyasikprice.add("20000");
+        bakyusaneyasikprice.add("20000");
+        bakyusaneyasikprice.add("7000");
+        bakyusaneyasikprice.add("15000");
+        bakyusaneyasikprice.add("15000");
+    }
+    public void addSokupndajiMenuPrice() {
+        sokupndaejiprice.add("11000");
+        sokupndaejiprice.add("11000");
+        sokupndaejiprice.add("13000");
+        sokupndaejiprice.add("11000");
+        sokupndaejiprice.add("6000");
+        sokupndaejiprice.add("6000");
+        sokupndaejiprice.add("6000");
+        sokupndaejiprice.add("5000");
+        sokupndaejiprice.add("7000");
+    }
+    public void addYulnalgaeMenuPrice() {
+        yulnalgaeprice.add("8500");
+        yulnalgaeprice.add("8500");
+        yulnalgaeprice.add("16000");
+        yulnalgaeprice.add("14000");
+        yulnalgaeprice.add("6000");
+        yulnalgaeprice.add("15000");
+        yulnalgaeprice.add("16000");
+        yulnalgaeprice.add("17000");
+        yulnalgaeprice.add("2000");
+    }
+    public void addMichinjjambbongMenuPrice() {
+        michinjjambbongprice.add("5000");
+        michinjjambbongprice.add("6000");
+        michinjjambbongprice.add("7000");
+        michinjjambbongprice.add("8000");
+        michinjjambbongprice.add("6000");
+        michinjjambbongprice.add("7000");
+        michinjjambbongprice.add("7500");
+        michinjjambbongprice.add("7000");
+        michinjjambbongprice.add("8000");
+    }
+    public void addDuckgmMenuPrice() {
+        duckgmprice.add("20000");
+        duckgmprice.add("20000");
+        duckgmprice.add("20000");
+        duckgmprice.add("20000");
+    }
+    public void addGuchonchickenMenuPrice() {
+        guchonchickenprice.add("15000");
+        guchonchickenprice.add("18000");
+        guchonchickenprice.add("18000");
+        guchonchickenprice.add("16000");
+        guchonchickenprice.add("16000");
+        guchonchickenprice.add("15000");
+        guchonchickenprice.add("17000");
+        guchonchickenprice.add("16000");
+        guchonchickenprice.add("15000");
+    }
+    /**/
+    public void addHansotMenuPrice() {
+        hansotprice.add("5000");
+        hansotprice.add("3700");
+        hansotprice.add("3900");
+        hansotprice.add("3500");
+        hansotprice.add("3900");
+        hansotprice.add("3700");
+        hansotprice.add("4000");
+        hansotprice.add("3600");
+        hansotprice.add("4400");
+    }
+    public void addBonggusMenuPrice() {
+        bonggusprice.add("1800");
+        bonggusprice.add("2000");
+        bonggusprice.add("2800");
+        bonggusprice.add("3000");
+        bonggusprice.add("2300");
+        bonggusprice.add("2500");
+        bonggusprice.add("4500");
+        bonggusprice.add("4500");
+        bonggusprice.add("2600");
+    }
+
+    public void addJlgumuckgiMenuPrice() {
+        jlgumuckgiprice.add("11000");
+        jlgumuckgiprice.add("11000");
+        jlgumuckgiprice.add("11000");
+        jlgumuckgiprice.add("11000");
+        jlgumuckgiprice.add("14000");
+        jlgumuckgiprice.add("11000");
+        jlgumuckgiprice.add("13000");
+        jlgumuckgiprice.add("12000");
+        jlgumuckgiprice.add("6000");
+    }
+    public void addGorilabobMenuPrice() {
+        gorilabobprice.add("22000");
+        gorilabobprice.add("6000");
+        gorilabobprice.add("6000");
+        gorilabobprice.add("6000");
+        gorilabobprice.add("6000");
+        gorilabobprice.add("6000");
+        gorilabobprice.add("6000");
+        gorilabobprice.add("7000");
+        gorilabobprice.add("6000");
+    }
+    public void addMomstouchMenuPrice() {
+        momstouchprice.add("5400");
+        momstouchprice.add("6000");
+        momstouchprice.add("6100");
+        momstouchprice.add("6100");
+        momstouchprice.add("4900");
+        momstouchprice.add("5600");
+        momstouchprice.add("5600");
+        momstouchprice.add("6200");
+        momstouchprice.add("5800");
+    }
+    public void addNeneChickenMenuPrice() {
+        nenechickenprice.add("17000");
+        nenechickenprice.add("17000");
+        nenechickenprice.add("17000");
+        nenechickenprice.add("17000");
+        nenechickenprice.add("17000");
+        nenechickenprice.add("17000");
+        nenechickenprice.add("15000");
+        nenechickenprice.add("16000");
+        nenechickenprice.add("17000");
+    }
+    public void addKimsdonMenuPrice() {
+        kimsdonprice.add("15000");
+        kimsdonprice.add("21000");
+        kimsdonprice.add("20000");
+        kimsdonprice.add("18000");
+        kimsdonprice.add("20000");
+        kimsdonprice.add("23000");
+        kimsdonprice.add("27000");
+        kimsdonprice.add("25000");
+        kimsdonprice.add("3000");
+    }
+    /**/
+
+    public void addMasinetangsuyukMenuPrice() {
+        masinetangsuyukprice.add("22000");
+        masinetangsuyukprice.add("22000");
+        masinetangsuyukprice.add("23000");
+        masinetangsuyukprice.add("23000");
+        masinetangsuyukprice.add("22000");
+        masinetangsuyukprice.add("18000");
+        masinetangsuyukprice.add("17000");
+        masinetangsuyukprice.add("22000");
+        masinetangsuyukprice.add("22000");
+    }
+    public void addTaesunjokbalMenuPrice() {
+        taesunjokbalprice.add("27000");
+        taesunjokbalprice.add("29000");
+        taesunjokbalprice.add("29000");
+        taesunjokbalprice.add("34000");
+        taesunjokbalprice.add("15000");
+        taesunjokbalprice.add("7000");
+        taesunjokbalprice.add("7000");
+        taesunjokbalprice.add("19000");
+    }
+    public void addGusunghansikvifeMenuPrice() {
+        gusunghansikvifeprice.add("6000");
+        gusunghansikvifeprice.add("6000");
+        gusunghansikvifeprice.add("6000");
+        gusunghansikvifeprice.add("6000");
+        gusunghansikvifeprice.add("6000");
+        gusunghansikvifeprice.add("6000");
+        gusunghansikvifeprice.add("6000");
+    }
+    public void addCheftondakMenuPrice() {
+        cheftongdakprice.add("15000");
+        cheftongdakprice.add("15000");
+        cheftongdakprice.add("16000");
+        cheftongdakprice.add("15000");
+        cheftongdakprice.add("15000");
+        cheftongdakprice.add("15000");
+        cheftongdakprice.add("17000");
+        cheftongdakprice.add("17000");
+        cheftongdakprice.add("17000");
+    }
+    public void addMaslanMenuPrice(){
+        maslanprice.add("17000");
+        maslanprice.add("16000");
+        maslanprice.add("16000");
+        maslanprice.add("16000");
+        maslanprice.add("16000");
+        maslanprice.add("16000");
+        maslanprice.add("16000");
+        maslanprice.add("16000");
+        maslanprice.add("27000");
+    }
+    public void addSunnyMenuPrice(){
+        sunnyprice.add("5500");
+        sunnyprice.add("6000");
+        sunnyprice.add("5500");
+        sunnyprice.add("5500");
+        sunnyprice.add("4500");
+        sunnyprice.add("5000");
+        sunnyprice.add("4500");
+        sunnyprice.add("4000");
+        sunnyprice.add("4500");
+    }
+    public void addTibaMenuPrice(){
+        tibaprice.add("12900");
+        tibaprice.add("12900");
+        tibaprice.add("11900");
+        tibaprice.add("13900");
+        tibaprice.add("11900");
+        tibaprice.add("16000");
+        tibaprice.add("15000");
+        tibaprice.add("17000");
+        tibaprice.add("14000");
+    }
+    public void addMaxicannaMenuPrice(){
+        mexicannaprice.add("15000");
+        mexicannaprice.add("16000");
+        mexicannaprice.add("16000");
+        mexicannaprice.add("16500");
+        mexicannaprice.add("17000");
+        mexicannaprice.add("17000");
+        mexicannaprice.add("17000");
+        mexicannaprice.add("17000");
+        mexicannaprice.add("17000");
     }
 }
