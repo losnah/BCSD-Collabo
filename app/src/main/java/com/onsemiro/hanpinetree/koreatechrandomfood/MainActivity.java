@@ -21,6 +21,7 @@ import butterknife.OnClick;
 public class MainActivity extends AppCompatActivity {
     @BindView(R.id.random) Button mRandomButton;
     @BindView(R.id.restaurantButton) Button mRestaurantButton;
+    @BindView(R.id.dbbutton)Button dbbutton;
     private Intent mIntent;
     public SQLiteDatabase database;
 
@@ -97,7 +98,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
+    @OnClick(R.id.dbbutton)
+    void onClickdb(){
+        Intent intent = new Intent(getApplicationContext(),DataBaseManager.class);
+        startActivity(intent);
+    }
     @OnClick(R.id.random)   // move to RandomActivity.class
     void onRandomClick(){
         mIntent = new Intent(getApplication(), RandomActivity.class);

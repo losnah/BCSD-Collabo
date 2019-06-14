@@ -468,6 +468,11 @@ public class DataBaseManager extends AppCompatActivity {
         duckgm.add("맵닭맵닭");
         duckgm.add("크림찜닭");
         duckgm.add("닭볶음탕");
+        duckgm.add("간장찜딹");
+        duckgm.add("맵닭맵닭");
+        duckgm.add("크림찜닭");
+        duckgm.add("닭볶음탕");
+        duckgm.add("닭볶음탕");
     }
     public void addGuchonchickenMenu() {
         guchonchicken.add("교촌허니오리지날");
@@ -503,12 +508,14 @@ public class DataBaseManager extends AppCompatActivity {
         taesunjokbal.add("배달상차림");
     }
     public void addGusunghansikvifeMenu() {
-        gusunghansikvife.add("소불고기");
+        gusunghansikvife.add("소불고기");//
         gusunghansikvife.add("된장찌개");
         gusunghansikvife.add("제육볶음");
         gusunghansikvife.add("김치찌개");
         gusunghansikvife.add("짜장덮밥");
         gusunghansikvife.add("카레덮밥");
+        gusunghansikvife.add("백반");
+        gusunghansikvife.add("백반");
         gusunghansikvife.add("백반");
     }
     public void addCheftondakMenu() {
