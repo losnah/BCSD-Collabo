@@ -30,7 +30,7 @@
         android:layout_height="92dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="76dp"
-        android:background="@color/colorPrimary"
+        android:background="@color/Slotmachine_color"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"
@@ -91,55 +91,64 @@
             android:id="@+id/button9"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Button" />
+            android:background="@drawable/button_random"
+            android:text="\?" />
 
         <Button
             android:id="@+id/button8"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Button" />
+            android:background="@drawable/button_random"
+            android:text="\?" />
 
         <Button
             android:id="@+id/button7"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Button" />
+            android:background="@drawable/button_random"
+            android:text="\?" />
 
         <Button
             android:id="@+id/button6"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Button" />
+            android:background="@drawable/button_random"
+            android:text="\?" />
 
         <Button
             android:id="@+id/button5"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Button" />
+            android:background="@drawable/button_random"
+            android:text="\?" />
 
         <Button
             android:id="@+id/button4"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Button" />
+            android:background="@drawable/button_random"
+            android:text="\?" />
 
         <Button
             android:id="@+id/button3"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Button" />
+            android:background="@drawable/button_random"
+            android:text="\?" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Button" />
+            android:background="@drawable/button_random"
+            android:text="\?" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:text="Button" />
+            android:background="@drawable/button_random"
+            android:text="\?" />
     </GridLayout>
 
 
