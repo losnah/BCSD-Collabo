@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -24,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.dbbutton)Button dbbutton;
     private Intent mIntent;
     public SQLiteDatabase database;
+
+    Button testButton;
 
     static ArrayList<ArrayList<String>> restaurant = new ArrayList<ArrayList<String>>();
     static ArrayList<String> restaurantname = new ArrayList<String>();
@@ -81,6 +84,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        testButton = (Button)findViewById(R.id.main_activity_test);
+
+
         ButterKnife.bind(this);
         File f = new File(getFilesDir() + "test.txt");
         if (!f.isFile()) {
@@ -95,6 +101,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "예외발생 ", Toast.LENGTH_LONG).show();
             }
         }
+
+        testButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), DataBaseManager.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -246,14 +261,14 @@ public class MainActivity extends AppCompatActivity {
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < guchonchicken.size(); i++) {
-            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size(), "교촌치킨", guchonchicken.get(i), Integer.parseInt(guchonchickenprice.get(i)), "041-567-7272"};
+            Object[] params1 = {i+sum+ michinjjambbong.size()+duckgm.size(), "교촌치킨", guchonchicken.get(i), Integer.parseInt(guchonchickenprice.get(i)), "041-567-7272"};
             database.execSQL(sql, params1);
         }
         for(int i = 0; i < taesunjokbal.size(); i++) {
-            Object[] params1 = {i+sum+ michinjjambbong.size()+bonggus.size()+guchonchicken.size(), "태선족발", taesunjokbal.get(i), Integer.parseInt(taesunjokbalprice.get(i)), "041-555-9588"};
+            Object[] params1 = {i+sum+ michinjjambbong.size()+duckgm.size()+guchonchicken.size(), "태선족발", taesunjokbal.get(i), Integer.parseInt(taesunjokbalprice.get(i)), "041-555-9588"};
             database.execSQL(sql, params1);
         }
-        sum += michinjjambbong.size()+bonggus.size()+guchonchicken.size();
+        sum += michinjjambbong.size()+duckgm.size()+guchonchicken.size();
         for(int i = 0; i < masinetangsuyuk.size(); i++) {
             Object[] params1 = {i+sum+taesunjokbal.size(), "마시내탕수육", masinetangsuyuk.get(i), Integer.parseInt(masinetangsuyukprice.get(i)), "041-552-99982"};
             database.execSQL(sql, params1);
