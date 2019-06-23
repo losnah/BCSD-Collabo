@@ -9,41 +9,24 @@
 
     <Button
         android:id="@+id/random"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:layout_marginBottom="84dp"
-        android:background="@drawable/randombuttonimg2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/restaurantButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="108dp"
+        android:text="랜덤"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dbbutton" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/restaurantButton"
-        android:layout_width="0dp"
-        android:layout_height="472dp"
-        android:layout_marginTop="47dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:background="@drawable/menubuttonimg2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/random"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/dbbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/random"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginStart="54dp"
+        android:layout_marginLeft="54dp"
+        android:text="음식점"
+        app:layout_constraintBaseline_toBaselineOf="@+id/random"
+        app:layout_constraintStart_toEndOf="@+id/random" />
 
 
 </android.support.constraint.ConstraintLayout>
