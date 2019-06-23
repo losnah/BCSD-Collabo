@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class RestaurantActivity extends AppCompatActivity {
-    private RecyclerAdapter adapter;
+    private RestaurantlistAdapter adapter;
     private ArrayList<String> restaurantname = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,14 +16,12 @@ public class RestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.activity_restaurant);
         init();
         setRestaurantName();
-
-
     }
     private void init(){
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
-        adapter = new RecyclerAdapter();
+        adapter = new RestaurantlistAdapter(this);
         recyclerView.setAdapter(adapter);
     }
     private void setRestaurantName(){
@@ -56,6 +54,5 @@ public class RestaurantActivity extends AppCompatActivity {
                 adapter.addItem(data);
             }
             adapter.notifyDataSetChanged();
-
     }
 }
