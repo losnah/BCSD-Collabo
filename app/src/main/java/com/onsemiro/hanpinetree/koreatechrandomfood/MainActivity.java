@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
     private Intent mIntent;
     public SQLiteDatabase database;
 
-    Button testButton;
-
     static ArrayList<ArrayList<String>> restaurant = new ArrayList<ArrayList<String>>();
     static ArrayList<String> restaurantname = new ArrayList<String>();
     static ArrayList<String> hansot = new ArrayList<String>();
@@ -84,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        testButton = (Button)findViewById(R.id.main_activity_test);
 
 
         ButterKnife.bind(this);
@@ -101,14 +98,6 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "예외발생 ", Toast.LENGTH_LONG).show();
             }
         }
-
-        testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), DataBaseManager.class);
-                startActivity(intent);
-            }
-        });
 
     }
 
