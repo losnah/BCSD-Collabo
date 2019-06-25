@@ -303,10 +303,12 @@ public class RandomActivity extends AppCompatActivity {
                 }
                 Random random = new Random();
                 randomnumber = random.nextInt(199);
-                for(int i = 0; i < randomnumber; i++){
+
+                for(int i = 0; i < randomnumber+1; i++){
                     cursor.moveToNext();
                 }
                 name = cursor.getString(1);
+           
 
                 mRandomTextview.setText(name);
                 cursor.close();
