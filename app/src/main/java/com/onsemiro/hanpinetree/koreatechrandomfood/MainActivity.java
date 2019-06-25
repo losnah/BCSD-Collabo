@@ -489,6 +489,11 @@ public class MainActivity extends AppCompatActivity {
         duckgm.add("맵닭맵닭");
         duckgm.add("크림찜닭");
         duckgm.add("닭볶음탕");
+        duckgm.add("닭볶음탕");
+        duckgm.add("닭볶음탕");
+        duckgm.add("닭볶음탕");
+        duckgm.add("닭볶음탕");
+        duckgm.add("닭볶음탕");
     }
     public void addGuchonchickenMenu() {
         guchonchicken.add("교촌허니오리지날");
@@ -521,6 +526,7 @@ public class MainActivity extends AppCompatActivity {
         taesunjokbal.add("족발덮밥(간장)");
         taesunjokbal.add("족발덮밥(매운)");
         taesunjokbal.add("알뜰한2인세트");
+        taesunjokbal.add("알뜰한2인세트");
     }
     public void addGusunghansikvifeMenu() {
         gusunghansikvife.add("소불고기");
@@ -529,6 +535,8 @@ public class MainActivity extends AppCompatActivity {
         gusunghansikvife.add("김치찌개");
         gusunghansikvife.add("짜장덮밥");
         gusunghansikvife.add("카레덮밥");
+        gusunghansikvife.add("백반");
+        gusunghansikvife.add("백반");
         gusunghansikvife.add("백반");
     }
     public void addCheftondakMenu() {
@@ -660,6 +668,11 @@ public class MainActivity extends AppCompatActivity {
         duckgmprice.add("20000");
         duckgmprice.add("20000");
         duckgmprice.add("20000");
+        duckgmprice.add("20000");
+        duckgmprice.add("20000");
+        duckgmprice.add("20000");
+        duckgmprice.add("20000");
+        duckgmprice.add("20000");
     }
     public void addGuchonchickenMenuPrice() {
         guchonchickenprice.add("15000");
@@ -773,8 +786,11 @@ public class MainActivity extends AppCompatActivity {
         taesunjokbalprice.add("7000");
         taesunjokbalprice.add("7000");
         taesunjokbalprice.add("19000");
+        taesunjokbalprice.add("19000");
     }
     public void addGusunghansikvifeMenuPrice() {
+        gusunghansikvifeprice.add("6000");
+        gusunghansikvifeprice.add("6000");
         gusunghansikvifeprice.add("6000");
         gusunghansikvifeprice.add("6000");
         gusunghansikvifeprice.add("6000");
