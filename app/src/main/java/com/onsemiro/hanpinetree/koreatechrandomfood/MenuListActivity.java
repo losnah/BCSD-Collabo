@@ -1,10 +1,14 @@
 package com.onsemiro.hanpinetree.koreatechrandomfood;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -22,36 +26,34 @@ public class MenuListActivity extends AppCompatActivity implements View.OnClickL
     private RecyclerView.LayoutManager mLayoutManager;
     private Button mCallMenuButton;
     private Button mShareMenuButton;
+    private String mRestaurantName;
 
     private ArrayList<String> mSelectedMenulist;
-
-    // floating button
-//    private Animation mFloatingOpen, mFloatingClose;
-//    private Boolean isFloatingOpen = false;
-//    private FloatingActionButton mBaseButton, mCallButton, mShareButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menulist);
 
+        Intent intent = getIntent();
+        mRestaurantName = intent.getStringExtra("restaurant");
+
         initView();
         upload();
     }
 
     private void upload() {
-        ArrayList<String> hansot = new ArrayList<>();
-        hansot.add("동백");
-        hansot.add("도련님");
-        hansot.add("돈가스도련님");
-        hansot.add("빅치킨마요");
-        hansot.add("돈가스카레");
-        hansot.add("한솥철판볶음밥");
-        hansot.add("국화");
-        hansot.add("돈가스덮밥");
-        hansot.add("치킨제육");
+        SQLiteDatabase database = openOrCreateDatabase("store.db", MODE_PRIVATE, null);
+        String sql = "select menu, price, phone from store where name = '" + mRestaurantName + "'";
+        Cursor cursor = database.rawQuery(sql, null);
 
-        mAdapter = new MenulistAdapter(hansot, this);
+        ArrayList<String> menulist = new ArrayList<>();
+        while(cursor.moveToNext()){
+            menulist.add(cursor.getString(0));
+            Log.i("menu", cursor.getString(0));
+        }
+
+        mAdapter = new MenulistAdapter(menulist, this);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.setOnRecyclerViewItemSelected(this);
     }
@@ -65,54 +67,15 @@ public class MenuListActivity extends AppCompatActivity implements View.OnClickL
         mShareMenuButton = (Button)findViewById(R.id.menulist_sharing_button);
         mCallMenuButton.setOnClickListener(this);
         mShareMenuButton.setOnClickListener(this);
-//        mFloatingOpen = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.floating_open);
-//        mFloatingClose = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.floation_close);
-
-//        mBaseButton = (FloatingActionButton)findViewById(R.id.menulist_floating_base);
-//        mCallButton = (FloatingActionButton)findViewById(R.id.menulist_floating_call);
-//        mShareButton = (FloatingActionButton)findViewById(R.id.menulist_floating_share);
-//
-//        mBaseButton.setOnClickListener(this);
-//        mCallButton.setOnClickListener(this);
-//        mShareButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
-//            case R.id.menulist_floating_base:
-//                anim();
-//                Toast.makeText(this, "Floating Action Button", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.menulist_floating_call:
-//                anim();
-//                Toast.makeText(this, "Call", Toast.LENGTH_SHORT).show();
-//                break;
-//            case R.id.menulist_floating_share:
-//                anim();
-//                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-//                break;    // floating button
             case R.id.menulist_call_button :
             case R.id.menulist_sharing_button :
         }
     }
-
-//    private void anim() { // floating button animation method
-//        if(isFloatingOpen){
-//            mCallButton.startAnimation(mFloatingClose);
-//            mShareButton.startAnimation(mFloatingClose);
-//            mCallButton.setClickable(false);
-//            mShareButton.setClickable(false);
-//            isFloatingOpen = false;
-//        }
-//        else{
-//            mCallButton.startAnimation(mFloatingOpen);
-//            mShareButton.startAnimation(mFloatingOpen);
-//            mCallButton.setClickable(true);
-//            mShareButton.setClickable(true);
-//            isFloatingOpen = true;
-//        }
-//    }
 
     @Override
     public void onClickedItem(String itemName, int count) {

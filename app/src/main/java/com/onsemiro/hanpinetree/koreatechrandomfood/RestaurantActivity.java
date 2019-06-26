@@ -24,6 +24,7 @@ public class RestaurantActivity extends AppCompatActivity {
         adapter = new RestaurantlistAdapter(this);
         recyclerView.setAdapter(adapter);
     }
+
     private void setRestaurantName(){
             restaurantname.add("한솥");
             restaurantname.add("봉구스");
