@@ -4,21 +4,18 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-
-// 상점 리스트 출력 -> 각 상점의 전체 메뉴 출력 및 선택 가능
-//        선택한 메뉴들을 하나로 모아서 메신저 어플리케이션(카카오톡)으로 공유 가능 ( 공유 할 때 마지막 문장으로 주문자의 계좌 추가 )
+import java.util.HashMap;
+import java.util.Map;
 
 public class MenuListActivity extends AppCompatActivity implements View.OnClickListener, RecyclerViewItemSelect{
     private RecyclerView mRecyclerView;
@@ -27,8 +24,9 @@ public class MenuListActivity extends AppCompatActivity implements View.OnClickL
     private Button mCallMenuButton;
     private Button mShareMenuButton;
     private String mRestaurantName;
+    private String mRestaurantPhone;
 
-    private ArrayList<String> mSelectedMenulist;
+    private Map<String, Integer> mSelectedMenulist;
 
     @Override
     public void onCreate(Bundle savedInstanceState){
@@ -37,6 +35,10 @@ public class MenuListActivity extends AppCompatActivity implements View.OnClickL
 
         Intent intent = getIntent();
         mRestaurantName = intent.getStringExtra("restaurant");
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(mRestaurantName);
+        }
 
         initView();
         upload();
@@ -48,10 +50,12 @@ public class MenuListActivity extends AppCompatActivity implements View.OnClickL
         Cursor cursor = database.rawQuery(sql, null);
 
         ArrayList<String> menulist = new ArrayList<>();
-        while(cursor.moveToNext()){
+        while(cursor.moveToNext()){ // moveToNext는 -1부터 시작된다.
+            mRestaurantPhone = cursor.getString(2);
             menulist.add(cursor.getString(0));
-            Log.i("menu", cursor.getString(0));
         }
+
+        cursor.close();
 
         mAdapter = new MenulistAdapter(menulist, this);
         mRecyclerView.setAdapter(mAdapter);
@@ -73,12 +77,24 @@ public class MenuListActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.menulist_call_button :
+                callMenu();
+                break;
             case R.id.menulist_sharing_button :
+                shareMenu();
+                break;
         }
+    }
+
+    private void shareMenu() {
+    }
+
+    private void callMenu() {
     }
 
     @Override
     public void onClickedItem(String itemName, int count) {
+        mSelectedMenulist = new HashMap<>();
         Toast.makeText(this, "아이템 : "+itemName+"클릭 횟수 : "+count, Toast.LENGTH_SHORT).show();
+        mSelectedMenulist.put(itemName, count);
     }
 }
