@@ -62,6 +62,7 @@ public class RestaurantlistAdapter extends RecyclerView.Adapter<RestaurantlistAd
                 case R.id.restaurant_name:
                     Toast.makeText(context,data.getTitle(),Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(mContext, MenuListActivity.class);
+                    intent.putExtra("restaurant", data.getTitle());
                     mContext.startActivity(intent);
                     break;
             }

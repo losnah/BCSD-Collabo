@@ -71,7 +71,7 @@ public class DataBaseManager extends AppCompatActivity {
         mPlusButton = (Button)findViewById(R.id.activity_data_base_manager_insert_data_button);
         mSelectButton = (Button)findViewById(R.id.activity_data_base_manager_select_button);
 
-        mConsoleText = (TextView)findViewById(R.id.activity_data_base_manager_console_textview); //버터나이프로 append안먹음 ㅠ
+        mConsoleText = (TextView)findViewById(R.id.activity_data_base_manager_console_textview); // 버터나이프로 append안먹음 ㅠ
 
         addHansotMenu();
         addBonggusMenu();
@@ -141,8 +141,8 @@ public class DataBaseManager extends AppCompatActivity {
                     String sql = "insert into store(_id, name, menu, price, phone) values( ?, ?, ?, ?, ?)";
 
                     int sum = 0;
-                    for(int i = 0; i < hansot.size(); i++) {
-                        Object[] params1 = {i, "한솥", hansot.get(i), 5000, "041-523-1124"};
+                        for(int i = 0; i < hansot.size(); i++) {
+                            Object[] params1 = {i, "한솥", hansot.get(i), 5000, "041-523-1124"};
                         database.execSQL(sql, params1);
                     }
                     println("완료");
@@ -155,7 +155,6 @@ public class DataBaseManager extends AppCompatActivity {
         mSelectButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 String sql = "select _id, name, menu, price, phone from store";
                 Cursor cursor = database.rawQuery(sql, null);
                 println("조회된 데이터 개수 : "+cursor.getCount());

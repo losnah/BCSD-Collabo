@@ -55,9 +55,11 @@ public class MenulistAdapter extends RecyclerView.Adapter<MenulistAdapter.ViewHo
             switch(v.getId()){
                 case R.id.menulist_add_button :
                     setItem(menuName, ++menuCountNumber);
+                    mRecyclerViewItemSelect.onClickedItem(menuName, menuCountNumber);
                     break;
                 case R.id.menulist_subtract_button :
                     if(menuCountNumber != 0) setItem(menuName, --menuCountNumber);
+                    mRecyclerViewItemSelect.onClickedItem(menuName, menuCountNumber);
                     break;
             }
         }

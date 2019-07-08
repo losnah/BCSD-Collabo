@@ -50,9 +50,8 @@ public class RandomActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initView();
         restaurantName();
-
-
     }
+
     private void initView() {
         for(int i=0;i<9;i++){
             buttonStates[i] = new ButtonState(false,false);
@@ -360,6 +359,7 @@ public class RandomActivity extends AppCompatActivity {
         button9.setText("?");
     }
 }
+
 class ButtonState{
     private boolean step01;
     private boolean step02;
